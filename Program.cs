@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using efcoreApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<DbContext>(options =>
+builder.Services.AddDbContext<DataContext>(options =>
 {
     var config = builder.Configuration;
     var connectionString = config.GetConnectionString("database");
@@ -23,6 +24,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();

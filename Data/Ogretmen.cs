@@ -12,6 +12,8 @@ namespace efcoreApp.Data
         public string? Eposta { get; set; }
         public string? Telefon { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:dd-MM-yyyy}", ApplyFormatInEditMode =false)]
         public  DateTime BaslamTarihi { get; set; }
 
         public ICollection<Kurs> Kurslar { get; set; } = new List<Kurs>();
